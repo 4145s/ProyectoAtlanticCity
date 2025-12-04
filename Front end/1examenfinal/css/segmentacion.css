@@ -1,0 +1,252 @@
+/*
+|========================================================|
+| --- CONFIGURACIÓN GLOBAL ---                           |
+|========================================================|
+*/
+* { box-sizing: border-box; }
+
+.page-container {
+    width: 100%;
+    padding: 0; 
+    /* ⭐ CORRECCIÓN CLAVE: Oculta cualquier desbordamiento horizontal 
+       para evitar que aparezca la barra de desplazamiento y el salto. */
+    overflow-x: hidden; 
+}
+
+.content-block { 
+    width: 100%;
+    margin: 0;
+}
+
+/*
+|========================================================|
+| --- ESTILOS DE BLOQUES ---                             |
+|========================================================|
+*/
+.content-block {
+    background-color: #ffffff;
+    padding: 30px; 
+    border-radius: 16px; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+/* Estilos de texto */
+.content-block h3 { 
+    font-size: 1.5em; 
+    font-weight: bold; 
+    margin: 0 0 5px 0; 
+}
+.content-block p { 
+    color: #6c757d; 
+    font-size: 1rem; 
+    margin: 0; 
+}
+
+/*
+|========================================================|
+| --- ESTILOS DE GRÁFICOS ---                            |
+|========================================================|
+*/
+.card canvas {
+    max-width: 100%;
+    min-height: 300px; 
+    display: block; 
+}
+
+.charts-block {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+}
+
+
+/*
+|========================================================|
+| --- ESTILOS PARA BLOQUE DE RESUMEN (IMAGEN 1) ---      |
+|========================================================|
+*/
+
+.summary-block {
+    /* El summary-block usa el mismo estilo de tarjeta que content-block y form-block,
+       pero usaremos flexbox internamente para la distribución horizontal. */
+    display: flex;
+    justify-content: space-between; /* Espacio entre el título/icono y el botón */
+    align-items: center; /* Alinear verticalmente al centro */
+    padding: 25px 30px; /* Ajuste de padding si es necesario */
+}
+
+.summary-header {
+    display: flex;
+    align-items: center;
+}
+
+.summary-icon {
+    /* Estilo del círculo de fondo para el ícono */
+    background-color: #f0f0f5; /* Un gris muy claro, similar a la imagen */
+    color: #1a1a2e; /* Color oscuro para el ícono */
+    border-radius: 50%;
+    padding: 15px;
+    margin-right: 20px;
+    line-height: 1; /* Asegura que el ícono esté bien centrado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-icon svg {
+    /* Ajuste del tamaño del ícono dentro del círculo */
+    width: 30px;
+    height: 30px;
+}
+
+.summary-titles h4 {
+    margin: 0;
+    font-weight: 700; /* Más grueso para el título */
+    font-size: 1.4em; /* Un poco más grande que los títulos del formulario */
+}
+
+.summary-titles .summary-subtitle {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+/* Estilo del botón grande de acción */
+.summary-action .btn-lg-action {
+    /* Hereda .btn-primary y lo ajusta */
+    height: 55px !important; 
+    font-size: 1.1em !important; 
+    padding: 0 30px !important;
+    min-width: 200px;
+    background-color: #ff7c00 !important; /* Usamos el color naranja de style.css (var(--bs-orange)) */
+    border: none !important;
+}
+
+.summary-action .btn-lg-action:hover {
+    background-color: #e56d00 !important; /* Naranja más oscuro al pasar el ratón */
+}
+
+.summary-action .btn-lg-action .btn-icon svg {
+    /* Ajuste del tamaño del ícono de rayo */
+    width: 20px;
+    height: 20px;
+}
+
+/* ================================ */
+/* BLOQUE: Crear Nuevo Segmento     */
+/* ================================ */
+
+.segment-create-block {
+    background: #fff;
+    border-radius: 16px;
+    margin-top: 25px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+    
+}
+
+.segment-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.segment-icon {
+    background: #f3f3f8;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a2e;
+}
+
+.segment-header h4 {
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.segment-subtitle {
+    color: #6c757d;
+    margin: 0;
+}
+
+.input-soft {
+    background: #f7f7fa !important;
+    border-radius: 10px !important;
+    height: 48px;
+    border: 1px solid #e1e1e7 !important;
+}
+
+.input-soft:focus {
+    border-color: #c5c5d3 !important;
+    box-shadow: none !important;
+}
+
+.py-3{
+    height: 30px;        /* Altura del botón */
+    font-size: 0.95rem;  /* Tamaño del texto */
+    padding:  1rem;  
+
+    border-radius: 10px; /* Bordes más modernos */
+}
+
+
+/* ================================ */
+/* BLOQUE ANALÍTICA DE SEGMENTOS   */
+/* ================================ */
+
+.segment-analytics {
+    border-radius: 16px;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* TARJETAS DE MÉTRICAS */
+.metric-card {
+    background: #f9f9fc;
+    border: 1px solid #e6e6f0;
+    padding: 14px 18px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.metric-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.metric-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-purple { background: #8e5af7; }
+.dot-blue   { background: #3b82f6; }
+.dot-green  { background: #10b981; }
+.dot-orange { background: #f59e0b; }
+
+.metric-percent {
+    background: #fff;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: 1px solid #e3e3eb;
+}
+
+/* CANVAS FIX */
+#segmentPieChart {
+    max-height: 320px;
+    margin-top: 25px;
+}

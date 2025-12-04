@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="segmentacion.css">
+    <link rel="stylesheet" href="css/clientes.css">
+   
+
+    <style>
+        .badge-soft-purple { background-color: #e0e0f8; color: #6a0dad; }
+        .badge-soft-blue { background-color: #e0f0ff; color: #007bff; }
+        .badge-soft-green { background-color: #e0fae0; color: #28a745; }
+        .bg-light-gray { background-color: #f8f9fa !important; }
+    </style>
+</head>
+
+<body>
+
+<div class="container py-4">
+
+    <div class="card client-header-card mb-4">
+        <div class="card-body p-4">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h5 class="fw-bold mb-1 text-dark">Gestión de Clientes</h5>
+                    <p class="text-muted small mb-0">Base de datos completa de clientes</p>
+                </div>
+                <button class="btn btn-dark rounded-3 px-3"
+                    data-bs-toggle="modal" data-bs-target="#modalNuevoCliente">
+                    <i class="bi bi-person-plus-fill me-2"></i> Nuevo Cliente
+                </button>
+            </div>
+
+            <div class="row g-2">
+                <div class="col-md-9">
+                    <div class="input-group">
+                        <span class="input-group-text border-0 bg-light-gray ps-3">
+                            <i class="bi bi-search text-muted"></i>
+                        </span>
+                        <input type="text" class="form-control border-0 bg-light-gray py-2"
+                            id="inputBuscarCliente" placeholder="Buscar por nombre o email...">
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <select class="form-select border-0 bg-light-gray py-2" id="filtroSegmento">
+                        <option selected>Todos los segmentos</option>
+                        <option value="VIP">VIP</option>
+                        <option value="Frecuente">Frecuente</option>
+                        <option value="Ocasional">Ocasional</option>
+                        <option value="Nuevo">Nuevo</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalVerPerfil" tabindex="-1" aria-labelledby="modalVerPerfilLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg profile-modal">
+            
+            <div class="modal-header border-bottom-0 pb-0">
+                <div>
+                    <h5 class="modal-title fw-bold" id="modalVerPerfilLabel">Perfil de Cliente: <span id="perfil-nombre-modal">Juan Pérez</span></h5>
+                    <p class="text-muted small mb-0">Detalles y actividad completa del cliente.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body pt-3">
+                
+                <ul class="nav nav-tabs profile-tabs mb-4" id="profileTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-tab-pane" type="button" role="tab" aria-controls="info-tab-pane" aria-selected="true">
+                            <i class="bi bi-info-circle me-1"></i> Información
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="actividad-tab" data-bs-toggle="tab" data-bs-target="#actividad-tab-pane" type="button" role="tab" aria-controls="actividad-tab-pane" aria-selected="false">
+                            <i class="bi bi-activity me-1"></i> Actividad Reciente
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="notas-tab" data-bs-toggle="tab" data-bs-target="#notas-tab-pane" type="button" role="tab" aria-controls="notas-tab-pane" aria-selected="false">
+                            <i class="bi bi-journal-text me-1"></i> Notas
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="profileTabContent">
+                    
+                    <div class="tab-pane fade show active" id="info-tab-pane" role="tabpanel" aria-labelledby="info-tab" tabindex="0">
+                        <div class="row g-4">
+                            
+                            <div class="col-md-6">
+                                <div class="card shadow-sm border-0 info-card">
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold text-dark mb-3">Datos de Contacto</h6>
+                                        <div class="data-group">
+                                            <p class="data-label">Email</p>
+                                            <p class="data-value" id="perfil-email">correo@ejemplo.com</p>
+                                        </div>
+                                        <div class="data-group">
+                                            <p class="data-label">Teléfono</p>
+                                            <p class="data-value" id="perfil-telefono">+1 (555) 123-4567</p>
+                                        </div>
+                                        <div class="data-group">
+                                            <p class="data-label">Dirección</p>
+                                            <p class="data-value" id="perfil-direccion">Calle Ficticia 123</p>
+                                        </div>
+                                        <div class="data-group">
+                                            <p class="data-label">Fecha de Registro</p>
+                                            <p class="data-value" id="perfil-registro">10/05/2024</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card shadow-sm border-0 info-card">
+                                    <div class="card-body">
+                                        <h6 class="card-title fw-bold text-dark mb-3">Segmentación y Preferencias</h6>
+                                        <div class="data-group">
+                                            <p class="data-label">Segmento Actual</p>
+                                            <p class="data-value"><span class="badge bg-primary text-white" id="perfil-segmento">VIP</span></p>
+                                        </div>
+                                        <div class="data-group">
+                                            <p class="data-label">Preferencias de Juegos</p>
+                                            <p class="data-value" id="perfil-preferencias">Blackjack, Póker</p>
+                                        </div>
+                                        <div class="data-group">
+                                            <p class="data-label">Visitas Totales</p>
+                                            <p class="data-value" id="perfil-visitas">45</p>
+                                        </div>
+                                        <div class="data-group">
+                                            <p class="data-label">Gasto Total</p>
+                                            <p class="data-value text-success fw-bold" id="perfil-gasto">$125.000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="actividad-tab-pane" role="tabpanel" aria-labelledby="actividad-tab" tabindex="0">
+                        <p class="text-muted">No hay actividad reciente registrada.</p>
+                    </div>
+
+                    <div class="tab-pane fade" id="notas-tab-pane" role="tabpanel" aria-labelledby="notas-tab" tabindex="0">
+                        <textarea class="form-control" rows="5" placeholder="Información relevante del cliente..." id="perfil-notas-area"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer border-top-0 pt-0">
+                <button type="button" class="btn btn-outline-secondary px-4 fw-medium" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-dark px-4" id="btnEditarPerfil"><i class="bi bi-pencil-fill me-2"></i> Editar Perfil</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- CONTENEDORES -->
+     <h6 class="text-uppercase text-muted fw-bold mb-3">Clientes Existentes</h6>
+<div id="clientes-grid" class="row mb-5"></div>
+
+<div id="clientes-nuevos" class="row"> 
+    </div>
+    
+</div>
+
+<!-- MODAL NUEVO CLIENTE -->
+<div class="modal fade" id="modalNuevoCliente" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+
+            <div class="modal-header border-bottom-0 pb-0">
+                <div>
+                    <h5 class="modal-title fw-bold">Registrar Nuevo Cliente</h5>
+                    <p class="text-muted small mb-0">Complete la información del cliente</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body pt-4">
+                <form id="formNuevoCliente">
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Nombre Completo</label>
+                            <input type="text" class="form-control" name="nombre" 
+                                   placeholder="Ej: Juan Pérez" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Email</label>
+                            <input type="email" class="form-control" name="email" 
+                                   placeholder="correo@ejemplo.com" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Teléfono</label>
+                            <input type="text" class="form-control" name="telefono"
+                                   placeholder="Ej: 987654321">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Segmento</label>
+                            <select class="form-select" name="segmento">
+                                <option disabled selected>Seleccionar segmento</option>
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="Ocasional">Ocasional</option>
+                                <option value="Frecuente">Frecuente</option>
+                                <option value="VIP">VIP</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Dirección</label>
+                            <input type="text" class="form-control" name="direccion"
+                                   placeholder="Ej: Av. Los Olivos 123">
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Preferencias</label>
+                            <input type="text" class="form-control" name="preferencias"
+                                   placeholder="Ej: Prefiere entregas por la mañana">
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Notas</label>
+                            <textarea class="form-control" name="notas" rows="3"
+                                      placeholder="Notas adicionales del cliente"></textarea>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer border-top-0">
+                <button class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                <button class="btn btn-dark" id="btnGuardarCliente">Guardar Cliente</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- FIN MODAL NUEVO CLIENTE -->
+
+
+<!-- ========================================== -->
+<!-- MODAL DE PERFIL (DISEÑO REPLICADO DE LA IMAGEN) -->
+<!-- ========================================== -->
+<div class="modal fade" id="modalVerPerfil" tabindex="-1" aria-labelledby="modalVerPerfilLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- modal-lg para buen ancho -->
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 16px; overflow: hidden;">
+            
+            <!-- Encabezado con Nombre y Badge -->
+            <div class="modal-header border-bottom-0 pb-0 pt-4 px-4">
+                <div>
+                    <div class="d-flex align-items-center gap-2 mb-1">
+                        <h4 class="modal-title fw-bold text-dark" id="perfil-nombre-modal">María González</h4>
+                        <span class="badge badge-soft-purple" id="perfil-segmento">VIP</span>
+                    </div>
+                    <p class="text-muted small">Perfil completo del cliente</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body px-4 pt-0">
+                
+                <!-- Pestañas de Navegación (Tabs) -->
+                <ul class="nav nav-tabs profile-tabs mb-4" id="profileTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-tab-pane" type="button" role="tab" aria-selected="true">
+                            Información
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="visitas-tab" data-bs-toggle="tab" data-bs-target="#visitas-tab-pane" type="button" role="tab" aria-selected="false">
+                            Visitas
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="interacciones-tab" data-bs-toggle="tab" data-bs-target="#interacciones-tab-pane" type="button" role="tab" aria-selected="false">
+                            Interacciones
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Contenido de las Pestañas -->
+                <div class="tab-content" id="profileTabContent">
+                    
+                    <!-- PESTAÑA 1: INFORMACIÓN -->
+                    <div class="tab-pane fade show active" id="info-tab-pane" role="tabpanel" tabindex="0">
+                        
+                        <!-- Tarjeta: Datos de Contacto -->
+                        <div class="card border-0 shadow-sm mb-4" style="background-color: #ffffff; border: 1px solid #eee;">
+                            <div class="card-body">
+                                <h6 class="fw-bold text-dark mb-3">Datos de Contacto</h6>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <label class="text-muted small mb-1">Email</label>
+                                        <p class="fw-medium text-dark mb-0" id="perfil-email">maria.gonzalez@email.com</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="text-muted small mb-1">Teléfono</label>
+                                        <p class="fw-medium text-dark mb-0" id="perfil-telefono">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="text-muted small mb-1">Dirección</label>
+                                        <p class="fw-medium text-dark mb-0" id="perfil-direccion">Av. Principal 123, Miami, FL</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta: Estadísticas (Bloques de colores de la imagen) -->
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h6 class="fw-bold text-dark mb-3">Estadísticas</h6>
+                                
+                                <div class="row g-3 text-center">
+                                    <!-- Bloque Visitas (Azul) -->
+                                    <div class="col-3">
+                                        <div class="p-2 rounded-3 bg-soft-blue">
+                                            <i class="bi bi-calendar-check text-primary mb-1 d-block" style="font-size: 1.2rem;"></i>
+                                            <span class="fw-bold d-block text-primary" id="perfil-visitas">45</span>
+                                            <small class="text-muted" style="font-size: 0.7rem;">Visitas</small>
+                                        </div>
+                                    </div>
+                                    <!-- Bloque Gasto (Verde) -->
+                                    <div class="col-3">
+                                        <div class="p-2 rounded-3 bg-soft-green">
+                                            <i class="bi bi-currency-dollar text-success mb-1 d-block" style="font-size: 1.2rem;"></i>
+                                            <span class="fw-bold d-block text-success" id="perfil-gasto">$125.000</span>
+                                            <small class="text-muted" style="font-size: 0.7rem;">Gasto</small>
+                                        </div>
+                                    </div>
+                                    <!-- Bloque Promedio (Morado) -->
+                                    <div class="col-3">
+                                        <div class="p-2 rounded-3 bg-soft-purple">
+                                            <i class="bi bi-graph-up-arrow text-purple mb-1 d-block" style="font-size: 1.2rem;"></i>
+                                            <span class="fw-bold d-block text-purple">$2778</span>
+                                            <small class="text-muted" style="font-size: 0.7rem;">Promedio/Visita</small>
+                                        </div>
+                                    </div>
+                                    <!-- Bloque Segmento (Naranja) -->
+                                    <div class="col-3">
+                                        <div class="p-2 rounded-3 bg-soft-orange">
+                                            <i class="bi bi-star text-orange mb-1 d-block" style="font-size: 1.2rem;"></i>
+                                            <span class="fw-bold d-block text-orange" id="perfil-segmento-text">VIP</span>
+                                            <small class="text-muted" style="font-size: 0.7rem;">Segmento</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- PESTAÑA 2: VISITAS (Placeholder) -->
+                    <div class="tab-pane fade" id="visitas-tab-pane" role="tabpanel" tabindex="0">
+                        <div class="text-center py-5 text-muted">
+                            <i class="bi bi-clock-history mb-2 d-block" style="font-size: 2rem;"></i>
+                            Historial de visitas no disponible en esta demo.
+                        </div>
+                    </div>
+
+                    <!-- PESTAÑA 3: INTERACCIONES (Placeholder) -->
+                    <div class="tab-pane fade" id="interacciones-tab-pane" role="tabpanel" tabindex="0">
+                        <div class="p-3">
+                            <label class="fw-bold mb-2">Notas del Cliente</label>
+                            <textarea class="form-control" id="perfil-notas-area" rows="4" readonly></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="modal-footer border-top-0 pt-0 pb-4 px-4 justify-content-end">
+                <button type="button" class="btn btn-outline-secondary px-4 rounded-3" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-dark px-4 rounded-3"><i class="bi bi-pencil-square me-2"></i> Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/clientes.js"></script>
+</body>
+</html>

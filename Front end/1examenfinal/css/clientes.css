@@ -1,0 +1,382 @@
+/* =========================================== */
+/* 9. SECCIÓN CLIENTES Y FILAS PERSONALIZADAS */
+/* =========================================== */
+
+/* Tarjeta de Cliente (Estilo de Fila de la imagen) */
+.client-row-card {
+    /* Estilos generales del contenedor de fila/tarjeta */
+    border: 1px solid #eef2f7;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    transition: all 0.2s ease;
+    padding: 1.5rem !important; /* Más padding para más espacio interior */
+}
+
+.client-row-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+    border-color: #dee2e6;
+}
+
+/* Ajustes de Tipografía en la Fila */
+
+/* Nombre del Cliente */
+.client-row-card .card-title {
+    font-size: 1.25rem !important; 
+    font-weight: 700 !important;
+    color: var(--bs-dark-text) !important;
+    margin-bottom: 0.25rem !important; 
+}
+
+/* Email, Teléfono, Dirección */
+.client-row-card .text-muted.small {
+    font-size: 0.9rem !important;
+    color: var(--bs-muted-text) !important;
+    line-height: 1.5;
+    
+}
+
+/* Iconos en la sección de Contacto (Email, Teléfono, Dirección) */
+.client-row-card .text-muted.small i {
+    opacity: 0.8;
+}
+
+/* Títulos de las Métricas (Visitas, Última Visita, Gasto Total) */
+.client-row-card p.text-muted.small.mb-0 {
+    font-size: 0.85rem !important;
+    color: var(--bs-muted-text) !important;
+    font-weight: 500;
+}
+
+/* Valores de las Métricas (Números) */
+.client-row-card p.fw-bold {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: var(--bs-dark-text) !important;
+    margin-top: 0.1rem;
+}
+
+/* Badge 'Inactivo' */
+.client-row-card .badge.bg-secondary {
+    background-color: #e5e7eb !important;
+    color: #6b7280 !important;
+    font-weight: 600;
+}
+
+
+/* Badges (Etiquetas) Personalizados - Estilo "Soft" */
+.badge-soft-purple {
+    background-color: #f3e8ff; /* Lila muy claro */
+    color: #7e22ce; /* Morado oscuro */
+    border: 1px solid #d8b4fe;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.badge-soft-blue {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    border: 1px solid #93c5fd;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.badge-soft-green {
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.badge-soft-orange {
+    background-color: #ffedd5;
+    color: #c2410c;
+    border: 1px solid #fdba74;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+/* =========================================== */
+/* 10. ESTILO DEL HEADER DE CLIENTES (Buscador y Botón) */
+/* =========================================== */
+
+.client-header-card {
+    border: 1px solid #d1d5db;
+    border-radius: 16px;
+    box-shadow: none;
+    background-color: #ffffff;
+    margin-top: -35px;  
+    
+
+
+   
+}
+
+/* Fondo gris claro para los inputs y selects */
+.bg-light-gray {
+    background-color: var(--bs-light-gray-bg) !important;
+    border: none !important;
+    border-radius: 8px !important;
+}
+
+/* Ajustes para el campo de búsqueda integrado */
+.client-header-card .input-group-text {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: var(--bs-light-gray-bg);
+    border-right: none;
+    color: #6b7280;
+}
+
+.client-header-card input.form-control {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-left: none;
+}
+
+.client-header-card select.form-select {
+    border-radius: 8px;
+    color: var(--bs-dark-text); 
+}
+
+/* Efecto focus limpio */
+.client-header-card input:focus, 
+.client-header-card select:focus {
+    box-shadow: none;
+    background-color: #e5e7eb !important; 
+    border-color: #a1a1aa !important; 
+}
+
+/* Botón Nuevo Cliente */
+.client-header-card .btn-dark {
+    background-color: #1f2937 !important;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+ margin-right: 25px;
+}
+
+/* Reducir el tamaño del modal Registrar Nuevo Cliente */
+#modalNuevoCliente .modal-lg {
+    max-width: 480px !important;  /* tamaño más pequeño */
+
+    width: 100%;
+}
+/* =========================================== */
+/* 11. MODAL REGISTRO DE CLIENTE */
+/* =========================================== */
+.modal-content {
+    border-radius: 16px;
+   padding: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: 700;
+    color: var(--bs-dark-text);
+}
+.modal-body input.form-control {  /*campo de texto de modal - registrar nuevo cliente */
+    background-color: #f5f6f7 !important;
+  border: 0.002px solid #cae0eb!important;
+    border-radius: 12px !important;
+}
+
+.form-select {  /* campo select de modal - registrar nuevo cliente */
+    background-color: #f5f6f7 !important;
+     border: 0.002px solid #cae0eb!important;
+    border-radius: 12px !important;
+
+}
+
+.form-control {   /* campo de texto de modal - registrar nuevo cliente */
+     background-color: #f5f6f7 !important;
+    border: 0.002px solid #cae0eb!important;
+    border-radius: 12px !important;
+}
+
+
+.modal-body .form-control, .modal-body .form-select {
+    border-radius: 8px;
+    padding: 0.3rem 0.1rem;
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    
+}
+
+.modal-body .form-control:focus, .modal-body .form-select:focus {
+    box-shadow: 0 0 0 0.15rem rgba(31, 41, 55, 0.25); /* Sombra oscura para el focus */
+    border-color: #1f2937;
+}
+
+
+
+
+/* =========================================== */
+/* 1. CONFIGURACIÓN DEL FOOTER DEL MODAL (CLAVE) */
+/* =========================================== */
+.modal-footer {
+    /* CLAVE: Fuerza la separación total de los elementos */
+    display: flex;
+    justify-content: space-between; 
+    
+    /* Asegura que no haya líneas divisorias en el modal footer si Bootstrap las añade por defecto */
+    border-top: none; 
+    padding: 1.5rem; /* Asegura buen espaciado interno */
+}
+
+/* =========================================== */
+/* 12. ESTILOS DE BOTONES DEL MODAL FOOTER */
+/* =========================================== */
+
+/* 🔑 CLAVE: Separa el primer elemento a la izquierda y el último a la derecha */
+.modal-footer {
+    display: flex !important;
+    justify-content: space-between !important; 
+    padding: 1.5rem !important; /* Espacio uniforme alrededor */
+    border-top: none !important;
+}
+
+/* ⬅️ Estilo del botón CANCELAR (btn-light) */
+.modal-footer .btn-light {
+    background-color: #ffffff !important;
+    color: var(--bs-muted-text, #6b7280) !important;
+    /* Reducimos el borde que tenías antes a uno más limpio */
+    border: 1px solid #d1d5db !important; 
+    border-radius: 8px !important;
+    font-weight: 500 !important; /* Ligeramente menos fuerte que el Guardar */
+    padding: 0.6rem 1.5rem !important;
+    
+    /* Muy importante: elimina cualquier margen conflictivo que hayas intentado antes */
+    margin: 0 !important; 
+}
+
+.modal-footer .btn-light:hover {
+    background-color: var(--bs-light-gray-bg, #f3f4f6) !important;
+    border-color: #a1a1aa !important;
+}
+
+/* ➡️ Estilo del botón GUARDAR CLIENTE (btn-dark) */
+.modal-footer .btn-dark { 
+    background-color: var(--bs-dark-text, #1f2937) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    padding: 0.6rem 1.5rem !important;
+    
+    /* Muy importante: elimina cualquier margen conflictivo que hayas intentado antes */
+    margin: 0 !important;
+}
+/*=================================================*/
+
+
+
+
+/* scroll de ventana modal - regsitrar nuevo cliente */
+.modal-content {
+    max-height: 85vh; /* El 80% de la altura de la ventana */
+    overflow-y: auto; /* Activa la barra vertical de scroll */
+}
+
+
+/* Texto que escribes dentro de los campos del modal */
+#modalNuevoCliente input.form-control,
+#modalNuevoCliente select.form-select,
+#modalNuevoCliente textarea.form-control {
+    font-size: 13px !important; /* Ajusta al tamaño que quieras */
+    
+}
+
+
+/* =========================================== */
+/* 13. MODAL DE PERFIL (Ver Perfil) */
+/* =========================================== */
+
+/* Estilo de la ventana modal principal */
+.profile-modal {
+    border-radius: 12px;
+}
+
+/* 13.1 Estilos de las Pestañas de Navegación */
+.profile-tabs .nav-link {
+    color: var(--bs-muted-text); /* Color gris para las pestañas inactivas */
+    border: none;
+    border-bottom: 3px solid transparent; /* Efecto de línea inferior */
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1.2rem; /* Espaciado interno de la pestaña */
+}
+
+.profile-tabs .nav-link:hover {
+    color: var(--bs-dark-text); /* Texto oscuro al pasar el ratón */
+    border-bottom-color: #e0e0e0;
+}
+
+.profile-tabs .nav-link.active {
+    color: var(--bs-dark-text); /* Texto activo */
+    background-color: transparent;
+    border-color: var(--bs-dark-text); /* Línea inferior oscura en la pestaña activa */
+    font-weight: 600;
+}
+
+
+/* 13.2 Estilos de las Tarjetas de Información */
+.info-card {
+    border: 1px solid #e5e7eb !important; 
+    border-radius: 12px;
+    background-color: var(--bs-light-gray-bg, #f8f9fa); /* Fondo ligeramente gris */
+}
+
+.info-card .card-body {
+    padding: 1.5rem;
+}
+
+/* 🔑 CLAVE: Estilos para la estructura Dato/Valor */
+.data-group {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dotted #d1d5db; /* Separador de puntos sutil */
+    display: flex; /* Habilita Flexbox */
+    justify-content: space-between; /* Etiqueta a la izquierda, Valor a la derecha */
+}
+
+.data-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.data-label {
+    font-size: 0.85rem;
+    color: var(--bs-muted-text);
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.data-value {
+    font-size: 0.95rem;
+    color: var(--bs-dark-text);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* Estilo para el área de notas */
+#perfil-notas-area {
+    min-height: 200px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+

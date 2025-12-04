@@ -1,0 +1,6 @@
+ROLES:
+- Líder del proyecto: Gabriel Alzamora Yarleque
+- Desarrollador front-end: Kevin Dioses Lopez
+- Desarrollador back-end: Mister Abad Gonza
+- Administrador de base de datos: Jhonny Bogado Villegas
+- Documentador técnico: Gabriel Alzamora Yarleque
