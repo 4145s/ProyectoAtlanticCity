@@ -1,0 +1,160 @@
+<link rel="stylesheet" href="/css/segmentacion.css">
+
+<div class="page-container">
+
+    <div class="content-block">
+        <h3>Segmentación de Clientes</h3>
+        <p>Cree y gestione segmentos personalizados de clientes</p>
+    </div>
+
+    <div class="content-block segment-create-block">
+
+        <div class="segment-header">
+            <div class="segment-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" 
+                     class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .39.812L10 7v6.5a.5.5 0 0 1-.79.407L7 12.5V7L1.61 1.812A.5.5 0 0 1 1.5 1.5"/>
+                </svg>
+            </div>
+
+            <div>
+                <h4>Crear Nuevo Segmento</h4>
+                <p class="segment-subtitle">Configure los criterios para el nuevo segmento</p>
+            </div>
+        </div>
+
+        <div class="row mt-4 g-0">
+
+            <div class="col-lg-12 mb-4 px-3">
+                <label class="form-label">Nombre del Segmento</label>
+                <input type="text" class="form-control input-soft" placeholder="Ej: Jugadores Premium">
+            </div>
+
+            <div class="col-lg-6 mb-4 pe-3">
+                <label class="form-label">Frecuencia de Visitas</label>
+                <select class="form-select input-soft">
+                    <option>Seleccionar criterio</option>
+                </select>
+            </div>
+
+            <div class="col-lg-6 mb-4 ps-3">
+                <label class="form-label">Nivel de Gasto</label>
+                <select class="form-select input-soft">
+                    <option>Seleccionar criterio</option>
+                </select>
+            </div>
+
+            <div class="col-lg-6 mb-4 pe-3">
+                <label class="form-label">Juegos Preferidos</label>
+                <select class="form-select input-soft">
+                    <option>Seleccionar criterio</option>
+                </select>
+            </div>
+
+            <div class="col-lg-6 mb-4 ps-3">
+                <label class="form-label">Última Visita</label>
+                <select class="form-select input-soft">
+                    <option>Seleccionar criterio</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3 px-3">
+            <button class="btn btn-outline-secondary px-4">Limpiar</button>
+            <button class="btn btn-dark w-75 btn-crear">Crear Segmento</button>
+        </div>
+
+    </div>
+
+    <div class="content-block segment-analytics mt-4">
+
+        <div class="row g-0">
+            
+            <div class="col-lg-6 pe-3">
+                <h5 class="fw-bold">Distribución de Segmentos Principales</h5>
+                <p class="text-muted">Total de 1520 clientes</p>
+
+                <canvas id="segmentPieChart"></canvas>
+            </div>
+
+            <div class="col-lg-6 ps-3">
+                <h5 class="fw-bold">Métricas de Segmentación</h5>
+                <p class="text-muted">Indicadores clave por segmento</p>
+
+                <div class="metric-card mb-3">
+                    <div class="metric-left">
+                        <span class="metric-dot dot-purple"></span>
+                        <div>
+                            <b>VIP Alto Valor</b><br>
+                            <span class="text-muted">285 clientes</span>
+                        </div>
+                    </div>
+                    <span class="metric-percent">18.8%</span>
+                </div>
+
+                <div class="metric-card mb-3">
+                    <div class="metric-left">
+                        <span class="metric-dot dot-blue"></span>
+                        <div>
+                            <b>Jugadores Frecuentes</b><br>
+                            <span class="text-muted">456 clientes</span>
+                        </div>
+                    </div>
+                    <span class="metric-percent">30.0%</span>
+                </div>
+
+                <div class="metric-card mb-3">
+                    <div class="metric-left">
+                        <span class="metric-dot dot-green"></span>
+                        <div>
+                            <b>Clientes Ocasionales</b><br>
+                            <span class="text-muted">523 clientes</span>
+                        </div>
+                    </div>
+                    <span class="metric-percent">34.4%</span>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-left">
+                        <span class="metric-dot dot-orange"></span>
+                        <div>
+                            <b>Nuevos Clientes</b><br>
+                            <span class="text-muted">256 clientes</span>
+                        </div>
+                    </div>
+                    <span class="metric-percent">16.8%</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div> <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx = document.getElementById('segmentPieChart');
+
+new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Jugadores Frecuentes', 'VIP Alto Valor', 'Clientes Ocasionales', 'Nuevos Clientes'],
+        datasets: [{
+            data: [30, 19, 34, 17],
+            backgroundColor: [
+                '#3b82f6',
+                '#8e5af7',
+                '#10b981',
+                '#f59e0b'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false }
+        }
+    }
+});
+</script>

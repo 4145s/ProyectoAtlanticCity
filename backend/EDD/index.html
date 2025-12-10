@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantic City CRM</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    
+   
+    
+   
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark-blue shadow-sm">
+        <div class="container-fluid">
+            <div> 
+                <span class="navbar-brand mb-0 h2 text-white">Atlantic City CRM</span>
+                <p class="mb-0 text-white-50">Sistema de Gestión de Clientes</p>
+            </div>
+            <div class="text-end"> 
+                <p class="mb-0 text-white-50 small">Gerencia de TI</p>
+                <span class="navbar-text text-white fw-bold">Usuario Administrador</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid px-0">
+        
+        <div class="container-fluid py-3 px-4"> 
+            <div class="tabs-container"> 
+                <ul class="nav nav-pills" id="main-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" data-section="dashboard"> 
+                            <i class="bi bi-grid-fill"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        
+                        <a class="nav-link text-muted" data-section="clientes">
+                            <i class="bi bi-person-lines-fill"></i> Clientes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" data-section="segmentacion">
+                            <i class="bi bi-funnel"></i> Segmentación
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" data-section="promociones">
+                            <i class="bi bi-gift-fill"></i> Promociones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" data-section="reportes">
+                            <i class="bi bi-bar-chart-fill"></i> Reportes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" data-section="atencion">
+                            <i class="bi bi-headset"></i> Atención
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" data-section="automatizacion">
+                            <i class="bi bi-gear-fill"></i> Automatización
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" data-section="usuarios">
+                            <i class="bi bi-people-fill"></i> Usuarios
+                        </a>
+                    </li>
+                </ul>
+            </div> 
+        </div>
+
+        <div id="main-content-container" class="container-fluid px-4">
+            
+            <div id="section-dashboard" class="content-section mt-5">
+                
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card metric-card border-blue">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">Total Clientes</h5>
+                                <i class="fas fa-users" style="color: var(--bs-blue-light);"></i> 
+                            </div>
+                            <h3>1,520</h3>
+                            <p class="percentage-text text-success">
+                                <i class="fas fa-arrow-up"></i> +13.5% vs mes anterior
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card metric-card border-purple-metric">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">Visitas Este Mes</h5>
+                                <i class="fas fa-calendar-alt" style="color: var(--bs-purple);"></i> 
+                            </div>
+                            <h3>3,800</h3>
+                            <p class="percentage-text text-success">
+                                <i class="fas fa-arrow-up"></i> +8.2% vs mes anterior
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card metric-card border-green">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">Promociones Activas</h5>
+                                <i class="fas fa-gift" style="color: var(--bs-success);"></i> 
+                            </div>
+                            <h3>24</h3>
+                            <p class="card-text text-muted">18 personalizadas, 6 generales</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card metric-card border-orange">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">Gasto Promedio</h5>
+                                <span class="icon-symbol" style="color: var(--bs-orange);">$</span>
+                            </div>
+                            <h3>$2,450</h3>
+                            <p class="percentage-text text-danger">
+                                <i class="fas fa-arrow-down"></i> -5.8% vs mes anterior
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-lg-7 col-md-12 mb-4">
+                        <div class="card chart-card"> 
+                            <div class="card-body">
+                                <h5 class="card-title">Crecimiento de Clientes y Visitas</h5>
+                                <p class="card-text text-muted">Últimos 6 meses</p>
+                                <div class="chart-container-wrapper">
+                                    <canvas id="lineChartClientes"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 mb-4">
+                        <div class="card chart-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Segmentación de Clientes</h5>
+                                <p class="card-text text-muted">Distribución por tipo</p>
+                                <div class="chart-container-wrapper">
+                                    <canvas id="pieChartSegmentacion"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="card activity-card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">Actividad Reciente</h5>
+                                <p class="card-text text-muted mb-4">Últimas interacciones con clientes</p>
+
+                                <ul class="list-group list-group-flush activity-list">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="activity-dot bg-primary"></span>
+                                            <span class="activity-name">María González</span>
+                                            <p class="activity-detail mb-0 text-muted small">Visita registrada</p>
+                                        </div>
+                                        <small class="text-muted">Hace 5 min</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="activity-dot bg-success"></span>
+                                            <span class="activity-name">Carlos Rodríguez</span>
+                                            <p class="activity-detail mb-0 text-muted small">Promoción utilizada</p>
+                                        </div>
+                                        <small class="text-muted">Hace 12 min</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="activity-dot bg-purple-dot"></span>
+                                            <span class="activity-name">Ana Martínez</span>
+                                            <p class="activity-detail mb-0 text-muted small">Nuevo registro</p>
+                                        </div>
+                                        <small class="text-muted">Hace 25 min</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="activity-dot bg-orange"></span>
+                                            <span class="activity-name">Luis Fernández</span>
+                                            <p class="activity-detail mb-0 text-muted small">Queja reportada</p>
+                                        </div>
+                                        <small class="text-muted">Hace 1 hora</small>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="activity-dot bg-info"></span>
+                                            <span class="activity-name">Isabel Torres</span>
+                                            <p class="activity-detail mb-0 text-muted small">Visita registrada</p>
+                                        </div>
+                                        <small class="text-muted">Hace 2 horas</small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4 mb-5">
+                    <div class="col-md-12">
+                        <div class="card alerts-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-orange">
+                                    <i class="bi bi-exclamation-circle"></i> Alertas y Notificaciones
+                                </h5>
+                                
+                                <ul class="alerts-list">
+                                    <li>3 quejas pendientes de resolución</li>
+                                    <li>12 clientes sin visitas en 60+ días</li>
+                                    <li>Promoción "Fin de Semana VIP" expira en 2 días</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div id="section-clientes" class="content-section mt-5 hidden">
+                <div class="alert alert-info">Aquí se cargará el contenido de `secciones/clientes.html`.</div>
+            </div>
+            <div id="section-segmentacion" class="content-section mt-5 hidden">
+                <div class="alert alert-info">Aquí se cargará el contenido de `secciones/segmentacion.html`.</div>
+            </div>
+            
+            <div id="section-promociones" class="content-section mt-5 hidden">
+                <div class="alert alert-info">Aquí va el contenido de la sección <strong>Promociones</strong></div>
+            </div>
+            <div id="section-reportes" class="content-section mt-5 hidden">
+                <div class="alert alert-info">Aquí va el contenido de la sección <strong>Reportes</strong></div>
+            </div>
+            <div id="section-atencion" class="content-section mt-5 hidden">
+                <div class="alert alert-info">Aquí va el contenido de la sección <strong>Atención</strong></div>
+            </div>
+            <div id="section-automatizacion" class="content-section mt-5 hidden">
+                <div class="alert alert-info">Aquí va el contenido de la sección <strong>Automatización</strong></div>
+            </div>
+            <div id="section-usuarios" class="content-section mt-5 hidden">
+                <div class="alert alert-info">Aquí va el contenido de la sección <strong>Gestión de Usuarios</strong></div>
+            </div>
+        </div>
+        
+    </main>
+    
+    <div class="modal fade" id="modalNuevoCliente" tabindex="-1" aria-labelledby="modalNuevoClienteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalNuevoClienteLabel">
+                        <i class="bi bi-person-plus-fill me-2"></i> Registrar Nuevo Cliente
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formNuevoCliente"> 
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="nombre" class="form-label">Nombre Completo <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" id="telefono" name="telefono">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="segmento" class="form-label">Segmento Inicial</label>
+                                <select class="form-select" id="segmento" name="segmento">
+                                    <option value="Nuevo" selected>Nuevo</option>
+                                    <option value="Ocasional">Ocasional</option>
+                                    <option value="Frecuente">Frecuente</option>
+                                    <option value="VIP">VIP</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label">Dirección / Ciudad</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="preferencias" class="form-label">Preferencias / Juegos</label>
+                            <input type="text" class="form-control" id="preferencias" name="preferencias" placeholder="Ej: Ruleta, Black Jack, tragamonedas...">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="notas" class="form-label">Notas Internas</label>
+                            <textarea class="form-control" id="notas" name="notas" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-dark" id="btnGuardarCliente">
+                        <i class="bi bi-save-fill me-1"></i> Guardar Cliente
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-success border-3 shadow-lg">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="modalConfirmacionLabel"><i class="bi bi-check-circle-fill me-2"></i> ¡Éxito!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="bi bi-person-check-fill text-success" style="font-size: 3rem;"></i> 
+                    <h4 class="mt-3 mb-2">Cliente Guardado Correctamente</h4>
+                    <p>El nuevo cliente ha sido añadido exitosamente a la lista.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalVerPerfil" tabindex="-1" aria-labelledby="modalVerPerfilLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content profile-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalVerPerfilLabel"><i class="bi bi-person-circle me-2"></i> Perfil de Cliente</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card info-card mb-4">
+                            <div class="card-body text-center">
+                                <i class="bi bi-person-square" style="font-size: 4rem; color: #1f2937;"></i>
+                                <h4 class="mt-2 mb-0" id="perfil-nombre-modal">Nombre Cliente</h4>
+                                <span class="badge mb-3" id="perfil-segmento">Segmento</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card info-card mb-4">
+                            <div class="card-body">
+                                <h6 class="card-title fw-bold text-dark mb-3"><i class="bi bi-list-columns-reverse me-2"></i> Detalles</h6>
+                                <div class="data-group">
+                                    <p class="data-label">Email</p>
+                                    <p class="data-value" id="perfil-email">correo@ejemplo.com</p>
+                                </div>
+                                <div class="data-group">
+                                    <p class="data-label">Teléfono</p>
+                                    <p class="data-value" id="perfil-telefono">N/A</p>
+                                </div>
+                                <div class="data-group">
+                                    <p class="data-label">Dirección</p>
+                                    <p class="data-value" id="perfil-direccion">N/A</p>
+                                </div>
+                                <div class="data-group">
+                                    <p class="data-label">Fecha de Registro</p>
+                                    <p class="data-value" id="perfil-registro">dd/mm/yyyy</p>
+                                </div>
+                                <div class="data-group">
+                                    <p class="data-label">Visitas</p>
+                                    <p class="data-value" id="perfil-visitas">0</p>
+                                </div>
+                                <div class="data-group">
+                                    <p class="data-label">Gasto Total</p>
+                                    <p class="data-value" id="perfil-gasto">$0</p>
+                                </div>
+                                <div class="data-group">
+                                    <p class="data-label">Preferencias</p>
+                                    <p class="data-value" id="perfil-preferencias">Ninguna</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card info-card mb-4">
+                            <div class="card-body">
+                                <h6 class="card-title fw-bold text-dark mb-3"><i class="bi bi-info-circle me-2"></i> Notas Internas</h6>
+                                <textarea class="form-control" id="perfil-notas-area" rows="4" placeholder="Escribe aquí notas sobre el cliente..."></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="col-lg-8">
+                        <ul class="nav nav-tabs profile-tabs mb-3" id="perfil-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="tab-visitas" data-bs-toggle="tab" data-bs-target="#content-visitas" type="button" role="tab">
+                                    <i class="bi bi-calendar-check me-1"></i> Historial
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-gastos" data-bs-toggle="tab" data-bs-target="#content-gastos" type="button" role="tab">
+                                    <i class="bi bi-wallet me-1"></i> Transacciones
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content" id="perfil-tab-content">
+                            <div class="tab-pane fade show active" id="content-visitas" role="tabpanel">
+                                <div class="alert alert-light text-center border">El historial de visitas y actividad del cliente se mostrará aquí.</div>
+                            </div>
+                            <div class="tab-pane fade" id="content-gastos" role="tabpanel">
+                                <div class="alert alert-light text-center border">El detalle de transacciones y gastos se mostrará aquí.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-dark"><i class="bi bi-pencil-fill me-1"></i> Editar Cliente</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/clientes.js"></script>
+    <script src="./js/segmentacion.js"></script>
+    <script src="./js/promociones.js"></script>
+</body>
+</html>
